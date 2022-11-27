@@ -1,0 +1,175 @@
+//1.
+ import java.util.*;
+
+class_Q1 
+{
+
+  public static void main(String args[]) 
+  {
+    Scanner myInput = new Scanner(System.in);
+    int size;
+    int arr[] = new int[5];
+
+//Interrupted Exception
+    try 
+    {
+      throw new InterruptedException("Interrupted occured in the process");
+    } catch (InterruptedException interExp) 
+    {
+      System.out.println(interExp);
+    }
+
+//Array out of bound exception
+    try {
+      int index;
+
+      System.out.println("Enter the index to peek");
+      index = myInput.nextInt();
+      int a = arr[index];
+
+      System.out.println("Value at " + index + " is = " + a);
+    } catch (ArrayIndexOutOfBoundsException arrExp) 
+    {
+      System.out.println(arrExp);
+    }
+
+    
+//Illegal ArgumentException
+    try 
+    {
+      throw new IllegalArgumentException(
+        "Passed Illegal Argument to the function"
+      );
+    } 
+    catch (IllegalArgumentException illegalExp) 
+    {
+      System.out.println(illegalExp);
+    }
+
+//IndexOut of bound exception
+    try {
+      String str;
+      System.out.println("Enter a string");
+      str = myInput.next();
+[7:05 PM, 8/23/2022] Kajal Jamshedpur: System.out.println("Enter the index to be peeked");
+      int index;
+      index = myInput.nextInt();
+
+      char ch = str.charAt(index);
+      System.out.println("Character at index " + index + " is: " + ch);
+    } 
+    catch (IndexOutOfBoundsException indexOutExp) 
+    {
+      System.out.println(indexOutExp);
+    }
+
+//negative Array size exception
+    try 
+    {
+      System.out.println("Enter the size of the Array");
+      size = myInput.nextInt();
+      if (size < 0) 
+      {
+        throw (new NegativeArraySizeException("Negative Array index passed"));
+      }
+    } 
+    
+    catch (NegativeArraySizeException negSize) 
+    {
+      System.out.println(negSize);
+    }
+
+
+//Null Pointer Exception
+    try 
+    {
+      throw new NullPointerException("Null pointer exception occured");
+    } 
+    catch (NullPointerException nullptrExp) 
+    {
+      System.out.println(nullptrExp);
+    }
+
+//Illegal Access Exception
+
+    try 
+    {
+      throw new IllegalAccessException("Illegal Excess Exception Occurred");
+    } 
+    catch (IllegalAccessException illegalExp) 
+    {
+      System.out.println(illegalExp);
+    }
+  }
+}
+//2.
+import java.util.*;
+class UserVerySmallNumException extends Exception {
+	double x;
+	UserVerySmallNumException(double c){
+		x=c;
+	}
+	public String toString(){
+		//System.out.println("error occoured");
+		return "error occoured";
+	}
+
+}
+class Que_2{
+	public static void main(String args[])
+	{
+		Scanner input=new Scanner(System.in);
+		System.out.println("enter the value of a");
+		double a=input.nextDouble();
+		System.out.println(a);
+		System.out.println("enter the value of b");
+		double b=input.nextDouble();
+		System.out.println(b);
+		//double c=input.nextDouble();
+		double c;
+		try{
+			c=a/b;
+		if(c<0.00001){
+			throw new UserVerySmallNumException(c);
+		}
+	else{
+		System.out.println(c);
+	}
+}
+			//throw new UserVerySmallNumException(c);
+		catch(UserVerySmallNumException x){
+		System.out.println(x);
+	}
+
+
+}
+}
+//3.
+import java.util.*;
+class UserNumericString extends Exception{
+	int x;
+	UserNumericString(int i){
+		x=i;
+
+	}
+	public String toString(){
+		return " "+x;
+	}
+}
+class Que_3{
+	public static void main(String args[]){
+		Scanner sc=new Scanner(System.in);
+		String s=sc.next();
+		System.out.println(s);
+		try{
+			for(int i=0;i<s.length();i++){
+				if(s.charAt(i)>='0' && s.charAt(i)<='9'){
+					throw new UserNumericString(i);
+				}
+			}
+		}
+		catch(UserNumericString x){
+			System.out.println(x);
+		}
+		}
+	}
